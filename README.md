@@ -1,4 +1,4 @@
-# Verilog-Code-for-Swapping-Three-Numbers
+                                             # Verilog-Code-for-Swapping-Three-Numbers
 Aim
 To design and simulate a Verilog HDL code for swapping the values of three numbers without using any temporary variables, and verify the correctness of the swapping operation through a testbench using the Vivado 2023.1 simulation environment.
 
@@ -31,68 +31,75 @@ Capture the waveform output and include the results in your report for verificat
 Verilog Code:
 
 // swap_three_numbers.v
-module swap_three_numbers (
-    input wire [7:0] a_in,
-    input wire [7:0] b_in,
-    input wire [7:0] c_in,
-    output reg [7:0] a_out,
-    output reg [7:0] b_out,
-    output reg [7:0] c_out
+```
+module swap_three_numbers(
+    input [7:0] a, b, c,   
+    output reg [7:0] a_out, b_out, c_out 
 );
+
     always @(*) begin
-        a_out = b_in; // Swap: a = b
-        b_out = c_in; // Swap: b = c
-        c_out = a_in; // Swap: c = a
+        a_out = b;   
+        b_out = c;   
+        c_out = a;   
     end
+
 endmodule
+```
+
 
 
 Testbench for Swapping Three Numbers:
 
 // swap_three_numbers_tb.v
 `timescale 1ns / 1ps
+```
+module tb_swap_three_numbers;
 
-module swap_three_numbers_tb;
+    // Testbench variables
+    reg [7:0] a, b, c;    // Inputs: 8-bit numbers
+    wire [7:0] a_out, b_out, c_out; // Outputs: swapped numbers
 
-    // Inputs
-    reg [7:0] a;
-    reg [7:0] b;
-    reg [7:0] c;
-
-    // Outputs
-    wire [7:0] a_out;
-    wire [7:0] b_out;
-    wire [7:0] c_out;
-
-    // Instantiate the Unit Under Test (UUT)
+    // Instantiate the swap module
     swap_three_numbers uut (
-        .a_in(a),
-        .b_in(b),
-        .c_in(c),
-        .a_out(a_out),
-        .b_out(b_out),
+        .a(a), 
+        .b(b), 
+        .c(c),
+        .a_out(a_out), 
+        .b_out(b_out), 
         .c_out(c_out)
     );
 
     // Test procedure
     initial begin
-        // Initialize inputs
-        a = 8'd10; // Assign 10 to a
-        b = 8'd20; // Assign 20 to b
-        c = 8'd30; // Assign 30 to c
+        // Initial values for a, b, and c
+        a = 8'd10;
+        b = 8'd20;
+        c = 8'd30;
 
-        // Wait for 10 ns to observe swap
+        // Monitor the values
+        $monitor("Time = %0t : a = %0d, b = %0d, c = %0d, a_out = %0d, b_out = %0d, c_out = %0d",
+                  $time, a, b, c, a_out, b_out, c_out);
+
+        // Wait for 10 time units and then check the swap
         #10;
 
-        // Display results
-        $display("Before Swap: a = %d, b = %d, c = %d", a, b, c);
-        #10;
-        $display("After Swap: a = %d, b = %d, c = %d", a_out, b_out, c_out);
+        // Change input values for another swap test
+        a = 8'd50;
+        b = 8'd60;
+        c = 8'd70;
         
-        // Stop the simulation
-        #10 $stop;
+        #10;
+        
+        // End the simulation
+        $finish;
     end
+
 endmodule
+```
+OUTPUT:
+![Screenshot 2024-10-04 211852](https://github.com/user-attachments/assets/eec40af9-f50d-4866-86cd-aaf1df3bdddc)
+
+
 
 Conclusion
 In this experiment, a Verilog HDL code for swapping three numbers was designed and successfully simulated. The testbench verified the swapping operation, showing that the values of three input numbers (a, b, and c) were swapped correctly without the use of temporary variables. This experiment demonstrated the effectiveness of Verilog in implementing logical operations and control mechanisms such as swapping values. The simulation results confirm the correct functionality of the design.
