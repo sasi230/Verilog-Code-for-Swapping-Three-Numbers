@@ -1,4 +1,4 @@
-#                                                         Swapping-Three-Numbers      
+#                                              EXP NO:3           Swapping of Three Numbers using Verilog HDL and Testbench Verification     
 
 ## Aim:
 To design and simulate a Verilog HDL code for swapping the values of three numbers without using any temporary variables, and verify the correctness of the swapping operation through a testbench using the Vivado 2023.1 simulation environment.
