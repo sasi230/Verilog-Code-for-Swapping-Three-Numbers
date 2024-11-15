@@ -16,6 +16,11 @@ Vivado 2023.1 or equivalent Verilog simulation tool.
 7. Observe the Waveforms:Examine the waveform to confirm that the values of the three numbers are swapped as expected.
 8. Save and Document Results:Capture the waveform output and include the results in your report for verification.
 
+
+
+
+
+
 ## Verilog Code:
 
 // swap_three_numbers.v
@@ -33,6 +38,10 @@ module swap_three_numbers(
 
 endmodule
 ```
+
+
+
+
 ## Testbench for Swapping Three Numbers:
 
 // swap_three_numbers_tb.v
