@@ -5,6 +5,7 @@ To design and simulate a Verilog HDL code for swapping the values of three numbe
 
 ## Apparatus Required:
 Vivado 2023.1 or equivalent Verilog simulation tool.
+
 ## Procedure:
 1. Launch Vivado 2023.1: Open Vivado and create a new project.
 2. Write the Verilog Code for Swapping:
@@ -21,8 +22,6 @@ Vivado 2023.1 or equivalent Verilog simulation tool.
 
 
 ## Verilog Code:
-
-// swap_three_numbers.v
 ```
 module swap_three_numbers(
     input [7:0] a, b, c,   
